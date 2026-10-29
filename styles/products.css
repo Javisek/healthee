@@ -277,15 +277,12 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.product-link {
-  display: block;
-  color: inherit;
-  cursor: url("../cursors/link.cur"), pointer;
-}
-
 .product-image {
-  display: block;
-  cursor: url("../cursors/link.cur"), pointer;
+     display: block;
+     aspect-ratio: 1 / 1;
+     overflow: hidden;
+     background: var(--button-secondary-hover);
+     cursor: url("../cursors/link.cur"), pointer;
 }
 
 .product-image img {
@@ -345,7 +342,12 @@ body {
 .product-cta {
   display: inline-block;
   cursor: url("../cursors/link.cur"), pointer;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }
+
 
 .product-cta:hover {
   text-decoration: underline;
@@ -378,13 +380,6 @@ body {
 .product-brand {
   font-size: 0.85rem;
   color: var(--text-secondary);
-}
-
-.product-cta {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
 }
 
 /* Empty state */
