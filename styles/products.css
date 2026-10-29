@@ -286,8 +286,8 @@ body {
 }
 
 .product-image img {
-  width: object-fit;
-  height: object-fit;
+  width: 100%;
+  height: fit-content;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
