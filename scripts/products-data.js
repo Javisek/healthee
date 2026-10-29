@@ -77,7 +77,7 @@ const PRODUCTS = [
       best: {
         name: "Toothbrush",
         brand: "Curanatura",
-        image: "assets/products/toothpaste-recommended.webp",
+        image: "assets/products/toothbrush-recommended.webp",
         url: "https://www.drmax.cz/curanatura-bamboo-extra-soft-bambusovy-kartacek"
       }
     }
