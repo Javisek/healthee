@@ -14,12 +14,12 @@ const CATEGORIES = [
   { id: "ears",         label: "Ears" },
   { id: "feet",         label: "Feet" },
   { id: "hands-nails",  label: "Hands & nails" },
-  { id: "hands-nails",  label: "Skin care" },
-  { id: "hands-nails",  label: "Kitchen" },
-  { id: "hands-nails",  label: "Bathroom" },
-  { id: "hands-nails",  label: "For babies" },
-  { id: "hands-nails",  label: "Make-up" },
-  { id: "hands-nails",  label: "Other" },
+  { id: "skin-care",    label: "Skin care" },
+  { id: "kitchen",      label: "Kitchen" },
+  { id: "bathroom",     label: "Bathroom" },
+  { id: "for-babies",   label: "For babies" },
+  { id: "make-up",      label: "Make-up" },
+  { id: "other",        label: "Other" },
   // add more here, e.g. { id: "hair", label: "Hair" }
 ];
 
