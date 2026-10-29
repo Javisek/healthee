@@ -33,23 +33,23 @@ const PRODUCTS = [
     defaultTier: "recommended",    // optional, this is the default anyway
     variants: {
       budget: {
-        name: "Product name",
-        brand: "Brand name",
-        image: "assets/products/toothpaste-budget.jpg",
-        url: "https://example.com/budget-toothpaste",
+        name: "Toothpaste",
+        brand: "Elmex",
+        image: "assets/products/toothpaste-budget.webp",
+        url: "https://www.dm.cz/p/d/2011734/elmex-zubni-pasta-caries-protection",
         price: { amount: 0, currency: "EUR" }   // optional fallback if scraping fails
       },
       recommended: {
-        name: "Product name",
-        brand: "Brand name",
-        image: "assets/products/toothpaste-recommended.jpg",
-        url: "https://example.com/recommended-toothpaste"
+        name: "Toothpaste",
+        brand: "BIOMED",
+        image: "assets/products/toothpaste-recommended.webp",
+        url: "https://www.drmax.cz/biomed-natural-whitening-zubni-pasta-100-g"
       },
       best: {
-        name: "Product name",
-        brand: "Brand name",
-        image: "assets/products/toothpaste-best.jpg",
-        url: "https://example.com/best-toothpaste"
+        name: "Toothpaste",
+        brand: "WELEDA",
+        image: "assets/products/toothpaste-best.webp",
+        url: "https://www.dm.cz/p/d/1036943/weleda-zubni-pasta-sole"
       }
     }
   },
@@ -62,23 +62,23 @@ const PRODUCTS = [
     defaultTier: "recommended",    // optional, this is the default anyway
     variants: {
       budget: {
-        name: "Product name",
-        brand: "Brand name",
-        image: "assets/products/toothpaste-budget.jpg",
-        url: "https://example.com/budget-toothpaste",
+        name: "Toothbrush",
+        brand: "My White Secret",
+        image: "assets/products/toothbrush-budget.webp",
+        url: "https://www.mywhitesecret.cz/produkty-mywhite-secret-bambusovy-zubni-kartacek/?hgtid=1844b1e3-278d-44f4-9dce-335163797ce9",
         price: { amount: 0, currency: "EUR" }   // optional fallback if scraping fails
       },
       recommended: {
-        name: "Product name",
+        name: "Toothbrush",
         brand: "Brand name",
-        image: "assets/products/toothpaste-recommended.jpg",
-        url: "https://example.com/recommended-toothpaste"
+        image: "assets/products/toothbrush-recommended.webp",
+        url: "https://www.drmax.cz/curanatura-bamboo-extra-soft-bambusovy-kartacek"
       },
       best: {
-        name: "Product name",
+        name: "Toothbrush",
         brand: "Brand name",
-        image: "assets/products/toothpaste-best.jpg",
-        url: "https://example.com/best-toothpaste"
+        image: "assets/products/toothpaste-recommended.webp",
+        url: "https://www.drmax.cz/curanatura-bamboo-extra-soft-bambusovy-kartacek"
       }
     }
   }
