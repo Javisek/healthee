@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        opacity: 0 !important;
+        transition: opacity 2s ease-in;
+      }
+      body.loaded {
+        opacity: 1 !important;
+    }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/products.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link href="assets/LOGO_HT.svg" rel="icon"/>
+    <title>HealThee</title>
+</head>
+
+<script src="scripts/theme_toggle.js" defer></script>
+
+<body>
+    
+    <!-- Navigation -->
+
+    <header class="navigation">
+
+        <a href="index.html">
+            <img data-aos="fade-down" data-aos-duration="800" class="logo" src="assets/LOGO_HT.svg" alt="HealThee Logo">
+        </a>
+
+        <button id="theme-toggle" type="button" aria-label="dark mode">
+            <span id="theme-icon">🌙</span>
+        </button>
+
+    </header>
+
+    <!-- Filter Section -->
+
+    <main>
+
+        <section class="filters" aria-label="Product filters">
+            <div class="filter-group" id="gender-filters" role="group" aria-label="Filter by gender"></div>
+
+            <button type="button" id="filters-toggle" class="filters-toggle"
+                    aria-expanded="false" aria-controls="category-panel">
+                <span>Filters</span>
+                <span id="filters-count" class="filters-count" hidden></span>
+                <span class="filters-arrow" aria-hidden="true">▾</span>
+            </button>
+
+            <div id="category-panel" class="category-panel">
+                <div class="category-panel-inner">
+                    <div class="filter-group" id="category-filters" role="group" aria-label="Filter by category"></div>
+                    <button type="button" id="clear-categories" class="clear-link" hidden>Clear categories</button>
+                </div>
+            </div>
+        </section>
+
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+
+        <div id="product-grid" class="product-grid"></div>
+
+        <div id="empty-state" class="empty-state" hidden>
+            <p>No products match these filters yet.</p>
+            <button type="button" id="reset-filters" class="chip">Reset filters</button>
+        </div>
+
+    </main>
+
+
+<script src="scripts/products-data.js"></script>
+<script src="scripts/products.js"></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script>
+window.addEventListener("load", () => {
+  setTimeout(() => document.body.classList.add("loaded"), 100);
+});
+</script>
+
+<div id="cursor" class="Cursor"></div>
+<script src="scripts/cursor.js"></script>
+</body>
+</html>

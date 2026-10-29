@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        opacity: 0 !important;
+        transition: opacity 2s ease-in;
+      }
+      body.loaded {
+        opacity: 1 !important;
+    }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link href="assets/LOGO_HT.svg" rel="icon"/>
+    <title>HealThee</title>
+</head>
+
+<script src="scripts/theme_toggle.js" defer></script>
+
+<body>
+    
+    <!-- Navigation -->
+
+    <header class="navigation">
+
+        <a href="index.html">
+            <img data-aos="fade-down" data-aos-duration="800" class="logo" src="assets/LOGO_HT.svg" alt="HealThee Logo">
+        </a>
+
+        <button id="theme-toggle" type="button" aria-label="dark mode">
+            <span id="theme-icon">🌙</span>
+        </button>
+
+    </header>
+
+    <canvas id="animated-gradient"></canvas>
+    
+    <section class="main">
+        <div class="main_title">
+            <h1>HealThee</h1>
+            <h2>Make the swap to better health</h2>
+        </div>
+        <div class="cta-container">
+            <a href="products.html"><button class="cta-button">View Alternatives</button></a>
+        </div>
+    </section>
+
+
+<canvas id="clickSparkCanvas"></canvas>
+
+<script>
+(() => {
+  const sparkColor = getComputedStyle(document.documentElement).getPropertyValue('--button-secondary-text').trim();
+  const sparkSize = 10;
+  const sparkRadius = 15;
+  const sparkCount = 8;
+  const duration = 400;
+  const easing = "ease-out";
+
+  const canvas = document.getElementById("clickSparkCanvas");
+  const ctx = canvas.getContext("2d");
+  const sparks = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  Object.assign(canvas.style, {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: 9999,
+    pointerEvents: "none",
+  });
+
+  function easeFunc(t) {
+    return t * (2 - t);
+  }
+
+  function draw(timestamp) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const now = performance.now();
+
+    for (let i = sparks.length - 1; i >= 0; i--) {
+      const spark = sparks[i];
+      const elapsed = now - spark.startTime;
+      if (elapsed >= duration) {
+        sparks.splice(i, 1);
+        continue;
+      }
+
+      const progress = elapsed / duration;
+      const eased = easeFunc(progress);
+
+      const distance = eased * sparkRadius;
+      const lineLength = sparkSize * (1 - eased);
+
+      const x1 = spark.x + distance * Math.cos(spark.angle);
+      const y1 = spark.y + distance * Math.sin(spark.angle);
+      const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
+      const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
+
+      ctx.strokeStyle = sparkColor;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+
+    if (sparks.length > 0) requestAnimationFrame(draw);
+  }
+
+  document.addEventListener("click", (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    const now = performance.now();
+    for (let i = 0; i < sparkCount; i++) {
+      sparks.push({
+        x,
+        y,
+        angle: (2 * Math.PI * i) / sparkCount,
+        startTime: now,
+      });
+    }
+
+    if (sparks.length === sparkCount) {
+      requestAnimationFrame(draw);
+    }
+  });
+})();
+</script>
+
+<script>
+  function showSidebar(){
+    const side__bar = document.querySelector('.side__bar')
+    side__bar.style.display = "flex"
+  }
+  function hideSidebar(){
+    const side__bar = document.querySelector('.side__bar')
+    side__bar.style.display = "none"
+  }
+</script>
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+    document.body.classList.add("loaded");
+  }, 100);
+});
+</script>
+
+<div id="cursor" class="Cursor"></div>
+<script src="scripts/cursor.js"></script>
+
+</body>
